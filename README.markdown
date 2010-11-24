@@ -1,3 +1,17 @@
+# Note about my changes
+I'm using this for client side templating for which the library works in Chromium, Firefox but not on Internet Explorer.
+So I've applied fixes and included the functions that the library invokes and aren't present in the Internet Explorer runtime.
+
+There are a few gotchas though
+
+#### => don't work
+%img{ :src => 'something' } should be %img{ src: 'something' }
+
+#### = doesn't translate
+.name= name outputs a div with class name and text '= name' and not
+the value of the name variable. 
+.name #{name} works.
+
 # haml-js - Server side templating language for JavaScript
 
 Ever wanted to use the excellent HAML syntax on a javascript project?  Me too, so I made one!.  This has most of the same functionality as the traditional [haml][].
